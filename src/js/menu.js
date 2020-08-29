@@ -1,20 +1,12 @@
 'use strict';
 //const BELL_SERVER       = "http://bellhouse.eu.ngrok.io";
 //const BELL_SERVER       = "http://192.168.1.156:5000";
-const AUDIO_PAGE        = 'audio.html';                     
 const VIDEO_PAGE        = 'video.html';                     
-const MIDI_PAGE         = 'midiIn.html';                    
-const WORDS_PAGE        = 'words.html';                    
-const SCAN_PAGE         = 'scan.html';                    
 const SETUP_PAGE        = 'setup.html';                    
 const RECORDING_PLAY	= 'player.html';
 var $               	= require("jquery");
 
-var audioButton 	= document.getElementById('audio-button');
 var videoButton 	= document.getElementById('video-button');
-var midiButton		= document.getElementById('midi-button');
-var wordsButton 	= document.getElementById('words-button');
-var scanButton	 	= document.getElementById('scan-button');
 var setupButton 	= document.getElementById('setup-button');
 var recordingButton = document.getElementById('playrecording-button');
 
@@ -71,20 +63,8 @@ function initControls(){
 
 function addToolbarBindings(){
 	
-    audioButton.addEventListener('click', function(evt){
-        window.location.href=AUDIO_PAGE;
-	});
     videoButton.addEventListener('click', function(evt){
         window.location.href=VIDEO_PAGE;
-	});
-    midiButton.addEventListener('click', function(evt){
-        window.location.href=MIDI_PAGE;
-	});
-    wordsButton.addEventListener('click', function(evt){
-        window.location.href=WORDS_PAGE;
-	});
-    scanButton.addEventListener('click', function(evt){
-        window.location.href=SCAN_PAGE;
 	});
     setupButton.addEventListener('click', function(evt){
         window.location.href=SETUP_PAGE;
@@ -140,11 +120,7 @@ function addrBad(){
 }
 function pageEnable(enable){
 	console.log("pageEnable : " + enable);
-	buttonState(audioButton,enable);
 	buttonState(videoButton,enable);
-	buttonState(midiButton,enable);
-	buttonState(wordsButton,enable);
-	buttonState(scanButton,enable);
 	buttonState(recordingButton,enable);
 }
 function buttonState(aButton,enable){

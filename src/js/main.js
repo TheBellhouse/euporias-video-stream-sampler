@@ -214,19 +214,7 @@ function initControls() {
     	window.location.href="setup.html";
     });
 
-    audioButton.addEventListener('click', function(evt) {
-    	window.location.href="audio.html";
-    });
 
-/*
-    keyboardButton.addEventListener('click', function(evt) {
-    	window.location.href="keyboard.html";
-    });
-    
-    barcodeButton.addEventListener('click', function(evt) {
-    	window.location.href="barcode.html";
-    });
- */   
     listRecordings();
     sampleDiv = document.getElementById('samples');
     setGridDims(dim1.value, dim2.value);
