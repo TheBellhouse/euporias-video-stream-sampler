@@ -100,6 +100,9 @@ gulp.task('serve', ['clean', 'build', 'watch'], function() {
     browserSync.init({
         server: {
             baseDir: BUILD_DEST
+        },
+        socket: {
+            domain: "localhost:3000"
         }
     });
 });

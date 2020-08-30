@@ -2,7 +2,7 @@
 //const BELL_SERVER       = "http://bellhouse.eu.ngrok.io";
 //const BELL_SERVER       = "http://192.168.1.156:5000";
 //const BELL_SERVER       = "http://192.168.1.142:5000";
-const TILE_TEMPLATE     = 'tile.html';                      //html tile template
+const TILE_TEMPLATE     = 'bell-setup-tile.html';                      //html tile template
 var $               = require("jquery");
 var request			= require('request');
 var requestPromise	= require('request-promise-native');
