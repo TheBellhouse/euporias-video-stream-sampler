@@ -21,16 +21,16 @@ initVideo();
 function initVideo() {
     video = document.createElement('video');
     video.width = 600;
-    video.height = 400;
+    video.height = 600;
     videoCanvas = document.getElementById('videoCanvas');
     videoCanvas.width = 600;
-    videoCanvas.height = 400;
+    videoCanvas.height = 600;
 
     videoCanvasCtx = videoCanvas.getContext('2d');
 
     setInterval(function () {
-        videoCanvasCtx.clearRect(0, 0, 600, 400);
-        videoCanvasCtx.drawImage(video, 0, 0, 600, 400, 0, 0, 600, 400);
+        videoCanvasCtx.clearRect(0, 0, 600, 600);
+        videoCanvasCtx.drawImage(video, 0, 0, 600, 600, 0, 0, 600,600);
     }, CAMERA_FRAME_RATE);
 }
 
@@ -169,7 +169,7 @@ function createSamples() {
                             },
                             bottomRight : {
                                 x : 600,
-                                y : 400
+                                y : 600
                             }
                         };
 
