@@ -192,14 +192,17 @@ function createSamples() {
 
     clearSamples();
 
+    const width = videoWidth ? videoWidth : 600;
+    const height = videoHeight ? videoHeight : 400;
+
     var clickPattern = {
                             topLeft: {
                                 x : 0,
                                 y : 0
                             },
                             bottomRight : {
-                                x : videoWidth,
-                                y : videoHeight
+                                x : width,
+                                y : height
                             }
                         };
 
