@@ -484,7 +484,7 @@ def application_exception_handler(error):
 def init():
     CORS(app)
     app.debug = True
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0',threaded=True)
 
 @app.route("/start", methods=['GET'])
 def start():

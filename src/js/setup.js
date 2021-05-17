@@ -1,6 +1,7 @@
 'use strict';
 const CAMERA_FRAME_RATE = 1000 / 20;
 const BELL_SERVER       = "https://bellhouse.eu.ngrok.io";
+// const BELL_SERVER       = "http://localhost:3002";          //dev with mockoon
 const HOME_PAGE         = 'index.html';                     //homepage
 const TILE_TEMPLATE     = 'tile.html';                      //html tile template
 
