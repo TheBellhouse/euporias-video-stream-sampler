@@ -4,9 +4,9 @@ euporias - ceramic bell project - video stream sampler
 ## installation
 (Use nvm to install / manage node versions)
 
-- `nvm install stable'
+- `nvm install stable`
 - `npm i -g gulp`
-- `cd <your git repo>/euporias-video-stream-sampler
+- `cd <your git repo>`
 - `npm install`
 
 ## running
