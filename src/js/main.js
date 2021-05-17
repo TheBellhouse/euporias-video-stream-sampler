@@ -1,6 +1,7 @@
 'use strict';
 const CAMERA_FRAME_RATE = 1000 / 20;
 const BELL_SERVER = "https://bellhouse.eu.ngrok.io";
+// const BELL_SERVER = "http://localhost:3002";          // dev with mockoon
 
 
 var request = require('request');
@@ -24,7 +25,6 @@ initVideo();
 function initVideo() {
     const height = videoHeight ? videoHeight: 400;
     const width = videoWidth ? videoWidth : 600;
-    console.log(width);
     video.width = width;
     video.height = height;
     videoCanvas = document.getElementById('videoCanvas');
@@ -48,7 +48,9 @@ function initControls() {
     var sampleThreshold = document.getElementById('sample-threshold');
     var samplingButton = document.getElementById('sampling-button');
     var recordingButton = document.getElementById('record-button');
-    var playRecordingButton = document.getElementById('play-record-button')
+    var recordsSelector = document.getElementById('records-list');
+    var recordDuration = document.getElementById('record-duration');
+    var playRecordingButton = document.getElementById('play-record-button');
     var setupButton = document.getElementById('setup-button');
 
 
@@ -140,6 +142,34 @@ function initControls() {
                 listRecordings();
        }
     });
+
+    recordsSelector.addEventListener('change', function(evt) {
+        var record = evt.target.value;
+        request(BELL_SERVER+'/records/'+record.replace('.json', ''),
+            function(error, response, body) {
+                recordDuration.style.padding = "0.5em";
+                var duration;
+                try {
+                    duration = getDuration(JSON.parse(body).recording);
+                } catch(e) {
+                    duration =  "unknown";
+                }
+                recordDuration.innerHTML = "Duration: " + duration;
+            }
+        );
+    });
+
+    function getDuration(recording) {
+        var start = recording[0].time;
+        var lastId = recording.length - 1;
+        var end = recording[lastId].time;
+        var totalSeconds = parseInt(end - start);
+        var hours = ('0' + Math.floor(totalSeconds / 3600)).slice(-2);
+        var minutes = ('0' + Math.floor((totalSeconds % 3600) / 60)).slice(-2);
+        var seconds = ('0' + (totalSeconds % 60)).slice(-2);
+
+        return hours + ":" + minutes + ":" + seconds;
+    }
 
     playRecordingButton.addEventListener('click', function(evt) {
         if(!playing) {
