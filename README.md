@@ -3,14 +3,16 @@ euporias - ceramic bell project - video stream sampler
 
 ## installation
 (Use nvm to install / manage node versions)
-`nvm install stable'
-`npm i -g gulp`
-`cd <your git repo>/euporias-video-stream-sampler
-`npm install`
+
+- `nvm install stable'
+- `npm i -g gulp`
+- `cd <your git repo>/euporias-video-stream-sampler
+- `npm install`
 
 ## running
-`nvm use 7.9`
-`gulp serve`
+
+- `nvm use`
+- `gulp serve`
 
 ## usage
 To start sampling click the large green 'Start Sampling' button.
@@ -28,7 +30,8 @@ After each frame, global `sample` object contains `diff` property: An array (in 
 
 For more information on the server app see the server README 
 
-## Release
+## release
+[Hosted on github pages](https://thebellhouse.github.io/config)
 
 - `gulp build`
 - `git checkout gh-pages`
